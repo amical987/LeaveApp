@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>{{ employees[0].First_Name }} {{ employees[0].Last_Name }}</h2>
+    <div class="row">
+        <div class="col-md-5">
+            <hr>
+            <label>Employee ID:</label>
+            <br>
+                <input type="text" name="ID" value="{{employees[0].EmployeeId}}" readonly="readonly" size="35" />
+            <br>
+                <label>Department:</label>
+            <br>
+                <input type="text" name="Deptr" value="{{employees[0].Department}}" readonly="readonly" size="35" />
+            <br>
+                <label>Job title:</label>
+            <br>
+                <input type="text" name="Job" value="{{employees[0].Job_Title}}" readonly="readonly" size="35" />
+            <br>
+                <label>Manager info:</label>
+            <br>
+                <input type="text" name="Manager" value="{{employees[0].Manager}}" readonly="readonly" size="35" />
+        </div>
+        <div class="col-md-7">
+            <hr>
+            <label>Remaining Annual leave:</label>
+            <br>
+                <input type="text" name="Days" value="{{employees[0].Total_Leave_Days}}" readonly="readonly"
+                    style="width: 50px;" />
+            <br>
+                <full-calendar [options]="calendarOptions"></full-calendar>
+                <hr>
+                <button class="btn btn-primary">Request Leave</button>
+        </div>
+    </div>
+    <div class="p-3 mb-2 bg-gradient-danger text-white"></div>
+</div>
+

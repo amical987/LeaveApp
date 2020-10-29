@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>{{ employees[0].First_Name }} {{ employees[0].Last_Name }}</h2>
+    <div class="row">
+        <div class="col-md-5">
+            <hr>
+            <label>Employee ID:</label>
+            <br>
+            <input type="text" name="ID" value="{{employees[0].EmployeeId}}" readonly="readonly" size="35" />
+            <br>
+            <label>Select type of leave:</label>
+            <br>
+            <select id="annual_leave" [(ngModel)]="value" style="width:300px;">
+                <option value="annual_leave">Anual Leave</option>
+                <option value="special_leave">Special Leave</option>
+                <option value="sick_leave">Sick Leave</option>
+            </select>
+            <br>
+            <label *ngIf="value == 'special_leave'">Select type of special leave:
+                <br>
+                <select id="special_leaves" style="width:300px;">
+                    <option value="birth of child">Birth of child</option>
+                    <option value="marriage">Marriage</option>
+                    <option value="relocation">Relocation</option>
+                </select>
+            </label>
+        </div>
+        <div class="col-md-7">
+            <hr>
+            <label>Selected date:</label>
+            <br>
+            <input type="text" name="Days"
+                value="from ({{leaves[0].Start_Date | date }}) to ({{leaves[0].End_Date | date }})" readonly="readonly"
+                size="35" />
+            <br>
+            <label>Number of selected days:</label>
+            <br>
+            <input type="text" name="Days" value="{{Total_Days_Applied}}" readonly="readonly" size="35" />
+            <br>
+            <label *ngIf="value == 'sick_leave'">Description:
+                <br>
+                <input type="text" name="Days" value="{{leaves[0].Description}}" size="35" style="height:100px;" />
+            </label>
+            <br>
+            <button class="btn btn-primary btn-space">Submit</button>
+            <button class="btn btn-warning btn-space">Save Draft</button>
+            <button class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+</div>
